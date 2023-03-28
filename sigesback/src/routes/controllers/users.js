@@ -6,7 +6,17 @@ const { Op } = require("sequelize");
 const router = Router();
 
 router.get('/', async (req, res) => {
+    const {email} = req.query
     try {
+
+        if(email){
+            const user = await User.findAll({
+                where:{
+                    email: email
+                }
+            })
+        return res.status(200).json(user)
+        }
         const allUsers = await User.findAll();
         return res.status(200).json(allUsers)
     } catch (error) {
