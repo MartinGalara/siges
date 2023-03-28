@@ -1,18 +1,19 @@
 const { Router } = require('express');
 const { User } = require('../../db.js')
 const { Op } = require("sequelize");
+const { createUser } = require('./utils.js')
 //const userExtractor = require('../middleware/userExtractor.js.js');
 
 const router = Router();
 
 router.get('/', async (req, res) => {
-    const {email} = req.query
+    const {id} = req.query
     try {
 
-        if(email){
+        if(id){
             const user = await User.findAll({
                 where:{
-                    email: email
+                    id: id
                 }
             })
         return res.status(200).json(user)
@@ -26,14 +27,12 @@ router.get('/', async (req, res) => {
 })
 
 router.post('/', async (req, res) => {
-    const { name , email, hashPassword} = req.body
+
     try {
-        const newUSer = await User.create({
-            name,
-            email,
-            hashPassword
-        })
-        return res.status(200).send("Usuario creado")
+
+        const newUser = await createUser(req.body)
+
+        return res.status(200).json(newUser)
     } catch (error) {
         return res.status(400).send(error.message)
     }
