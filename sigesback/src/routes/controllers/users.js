@@ -27,6 +27,8 @@ router.get('/', async (req, res) => {
 
 router.post('/', async (req, res) => {
 
+    console.log("entre al post")
+
     try {
 
         const newUser = await createUser(req.body)
