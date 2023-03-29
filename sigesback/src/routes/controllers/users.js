@@ -9,7 +9,6 @@ const router = Router();
 router.get('/', async (req, res) => {
     const {id} = req.query
     try {
-
         if(id){
             const user = await User.findAll({
                 where:{
