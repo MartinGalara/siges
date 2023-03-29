@@ -25,7 +25,7 @@ router.get('/', async (req, res) => {
     
 })
 
-router.post('/', async (req, res) => {
+router.post('/asd', async (req, res) => {
 
     console.log("entre al post")
 
