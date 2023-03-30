@@ -14,7 +14,7 @@ const createUser = async (data) => {
         const newUser = await User.create({
             id: userId,
             email: data.email,
-            address: data.address
+            info: data.info
         })
         return newUser;
     }
