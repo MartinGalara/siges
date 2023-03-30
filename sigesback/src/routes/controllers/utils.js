@@ -19,7 +19,6 @@ const createUser = async (data) => {
         return newUser;
     }
     else{
-        console.log("entre aca xq hay 1 repetido")
         return await createUser(data)
     }
 
@@ -27,9 +26,13 @@ const createUser = async (data) => {
 
 function generarCodigo() {
     let codigo = "";
-    const caracteres = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
-    for (let i = 0; i < 6; i++) {
-      codigo += caracteres.charAt(Math.floor(Math.random() * caracteres.length));
+    const letras = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+    for (let i = 0; i < 2; i++) {
+      codigo += letras.charAt(Math.floor(Math.random() * letras.length));
+    }
+    const numeros = "0123456789";
+    for (let i = 0; i < 4; i++) {
+      codigo += numeros.charAt(Math.floor(Math.random() * numeros.length));
     }
     return codigo;
   }

@@ -6,8 +6,6 @@ const {
   DB_USER, DB_PASSWORD, DB_HOST, DB_NAME, DB_PORT
 } = process.env;
 
-console.log(process.env.NODE_ENV)
-
 let sequelize = process.env.NODE_ENV === 'production'
   ? new Sequelize({
       database: DB_NAME,
@@ -56,27 +54,11 @@ sequelize.models = Object.fromEntries(capsEntries);
 // Para relacionarlos hacemos un destructuring
 
 const { User } = sequelize.models;
+const { Ticket } = sequelize.models;
 
 // Aca vendrian las relaciones
-// Product.hasMany(Reviews);
-/* 
-User.belongsToMany(Routine, {through: User_Routine, timestamps: false});
-Routine.belongsToMany(User, {through: User_Routine, timestamps: false});
-
-Routine.belongsToMany(Excercise, {through: Routine_Excercise})
-Excercise.belongsToMany(Routine, {through: Routine_Excercise})
-
-Excercise.belongsTo(Muscle);
-Muscle.hasMany(Excercise);
-
-User.belongsToMany(Product, {through: 'User_Product', timestamps: false});
-Product.belongsToMany(User, {through: 'User_Product', timestamps: false});
-
-User.hasMany(Class);
-Class.belongsTo(User);
-
-Feedback.belongsTo(User);
-User.hasMany(Feedback); */
+Ticket.belongsTo(User);
+User.hasMany(Ticket);
 
 module.exports = {
   ...sequelize.models, // para poder importar los modelos así: const { Product, User } = require('./db.js');
