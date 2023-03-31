@@ -14,7 +14,7 @@ router.get('/', async (req, res) => {
         const user = await User.findAll({
             where:{
                 info: allClients[i].client,
-                email: " "
+                email: "asd"
             }
         })
 
