@@ -3,7 +3,6 @@ const { Router } = require("express");
 const { Op } = require("sequelize");
 const users = require("./controllers/users.js")
 const tickets = require("./controllers/tickets.js")
-const clients = require("./controllers/clients.js")
 const computers = require("./controllers/computers.js")
 
 // Importar todos los routers;
@@ -13,7 +12,6 @@ const router = Router();
 
 router.use('/users', users)
 router.use('/tickets', tickets)
-router.use('/clients', clients)
 router.use('/computers', computers)
 
 module.exports = router;
