@@ -17,6 +17,8 @@ router.get('/', async (req, res) => {
                 info: allClients[i].client
             }
         })
+
+        console.log(user)
     
         const newComputers = await Computer.create({
             alias: allClients[i].alias,
