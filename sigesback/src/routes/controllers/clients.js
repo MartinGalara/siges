@@ -13,15 +13,15 @@ router.get('/', async (req, res) => {
         
         const user = await User.findAll({
             where:{
-                info: allClients[i].client,
-                email: "asd"
+                info: allClients[i].client
             }
         })
 
         if(user.length === 0){
 
             const newUser = await createUser({
-                info: allClients[i].client
+                info: allClients[i].client,
+                email: "asd"
             })
 
         }
