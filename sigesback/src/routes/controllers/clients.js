@@ -12,7 +12,7 @@ router.get('/', async (req, res) => {
 
    for (let i = 0; i < allClients.length; i++) {
     
-        const user = User.findAll({
+        const user = await User.findAll({
             where:{
                 info: allClients[i].client
             }
