@@ -41,7 +41,7 @@ router.get('/', async (req, res) => {
     
     for (let i = 0; i < asdasd.length; i++) {
         try {
-            const userToDelete = await User.findByPk(e)
+            const userToDelete = await User.findByPk(asdasd[i])
             console.log(userToDelete)
             
         } catch (error) {
