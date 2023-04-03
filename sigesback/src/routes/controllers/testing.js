@@ -1,11 +1,12 @@
 const { Router } = require('express');
 const { User } = require('../../db.js')
+const { Computer } = require('../../db.js')
 //const userExtractor = require('../middleware/userExtractor.js.js');
 
 const router = Router();
 
 router.get('/', async (req, res) => {
-    const asdasd = [
+    /* const asdasd = [
         "DT7602",
         "ZH7869",
         "AS6496",
@@ -50,8 +51,20 @@ router.get('/', async (req, res) => {
         
     }
 
-    return res.status(200).send("listo")
+    return res.status(200).send("listo") */
     
+    const allComputers = await Computer.findAll();
+
+    for (let i = 0; i < allComputers.length; i++) {
+        
+        let newAlias = allComputers[i].charAt(0).toUpperCase() + allComputers[i].slice(1);
+
+        const pcToUpdate = await Computer.findByPk(allComputers[i].id)
+
+        console.log(allComputers[i].id)
+        
+    }
+
 })
 
 module.exports = router;
