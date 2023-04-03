@@ -57,7 +57,7 @@ router.get('/', async (req, res) => {
 
     for (let i = 0; i < allComputers.length; i++) {
         
-        let newAlias = allComputers[i].charAt(0).toUpperCase() + allComputers[i].slice(1);
+        let newAlias = allComputers[i].alias.charAt(0).toUpperCase() + allComputers[i].alias.slice(1);
 
         const pcToUpdate = await Computer.findByPk(allComputers[i].id)
 
