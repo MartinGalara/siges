@@ -42,10 +42,10 @@ router.get('/', async (req, res) => {
     for (let i = 0; i < asdasd.length; i++) {
         try {
             const userToDelete = await User.findByPk(asdasd[i])
-            console.log(userToDelete)
+            await userToDelete.destroy()
             
         } catch (error) {
-            console.log(error)
+            console.log(`${userToDelete} no pudo ser borrado`)
         }
         
     }
