@@ -61,7 +61,9 @@ router.get('/', async (req, res) => {
 
         const pcToUpdate = await Computer.findByPk(allComputers[i].id)
 
-        console.log(allComputers[i].id)
+        await pcToUpdate.update({ 
+            alias: newAlias
+        });
         
     }
 
