@@ -7,7 +7,7 @@ const router = Router();
 
 router.get('/', async (req, res) => {
     
-    const allTesting = Testing.findAll()
+    const allTesting = await Testing.findAll()
 
     return res.status(200).json(allTesting)
 
