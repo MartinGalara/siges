@@ -9,7 +9,24 @@ router.get('/', async (req, res) => {
     
     const allTesting = await Testing.findAll()
 
-    return res.status(200).json(allTesting)
+    for (let i = 0; i < allTesting.length; i++) {
+        
+        const computersToUpdate = await Computer.findAll({
+            where:{
+                userId: allTesting[i].find
+            }
+        })
+
+        for (let j = 0; j < computersToUpdate.length; j++) {
+            await computersToUpdate[j].update({
+                userId: allTesting[i].replace
+            })
+            
+        }
+        
+    }
+
+    return res.status(200).send("listo")
 
 })
 
