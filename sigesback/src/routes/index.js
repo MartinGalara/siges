@@ -5,6 +5,7 @@ const users = require("./controllers/users.js")
 const tickets = require("./controllers/tickets.js")
 const computers = require("./controllers/computers.js")
 const testing = require("./controllers/testing.js")
+const optickets = require("./controllers/optickets.js")
 
 // Importar todos los routers;
 // Ejemplo: const authRouter = require('./auth.js');
@@ -15,5 +16,6 @@ router.use('/users', users)
 router.use('/tickets', tickets)
 router.use('/computers', computers)
 router.use('/testing', testing)
+router.use('/optickets', optickets)
 
 module.exports = router;
