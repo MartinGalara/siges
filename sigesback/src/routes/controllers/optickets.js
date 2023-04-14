@@ -43,8 +43,8 @@ router.delete('/', async (req, res) => {
     try {
  
      const opTicketToDelete = await Opticket.findByPk(id)
-     console.log(opTicketToDelete)
-     return res.status(200).json(opTicketToDelete)
+     await opTicketToDelete.destroy()
+     return res.status(200).send("Ticket eliminado")
      
     } catch (error) {
      return res.status(400).json(error.message)
