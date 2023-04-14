@@ -36,4 +36,19 @@ router.post('/', async (req, res) => {
    
 })
 
+router.delete('/', async (req, res) => {
+
+    const {id} = req.query;
+
+    try {
+ 
+     const opTicketToDelete = await Opticket.findByPk(id)
+     console.log(opTicketToDelete)
+     return res.status(200).json(opTicketToDelete)
+     
+    } catch (error) {
+     return res.status(400).json(error.message)
+    }
+ })
+
 module.exports = router;

@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import {
   getAllOpTickets
 } from "../../redux/actions";
+import { Card }  from '@mui/material'
 
 import OpTicketCard from "../OpTicketCard/OpTicketCard";
 
@@ -20,9 +21,9 @@ export default function AdminDashboard() {
 
   return (
     <div>
-      <h1>este es el admindashboard</h1>
       {allOpTickets?.map((el) => {
         return (
+        <Card variant="outlined">
           <OpTicketCard
             key={el.id}
             name={el.name}
@@ -30,6 +31,7 @@ export default function AdminDashboard() {
             detail={el.detail}
             id={el.id}
           />
+        </Card>
         );
       })}
     </div>

@@ -1,5 +1,6 @@
 import axios from "axios";
 export const GET_ALL_OPTICKETS = "GET_ALL_OPTICKETS";
+export const DELETE_OPTICKETS = "DELETE_OPTICKETS";
 
 export function createTicket(arg) {
     return async function () {
@@ -22,6 +23,16 @@ export function createTicket(arg) {
       return dispatch({
         type: GET_ALL_OPTICKETS,
         payload: allOpTickets.data,
+      });
+    };
+  }
+
+  export function deleteOpTickets(id) {
+    return async function (dispatch) {
+      await axios.delete(`https://siges-production.up.railway.app/optickets?id=${id}`);
+      return dispatch({
+        type: DELETE_OPTICKETS,
+        payload: id,
       });
     };
   }

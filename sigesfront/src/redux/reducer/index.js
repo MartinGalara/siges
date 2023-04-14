@@ -1,5 +1,6 @@
 import {
-  GET_ALL_OPTICKETS
+  GET_ALL_OPTICKETS,
+  DELETE_OPTICKETS
 } from "../actions"; 
  
  const initialState = {
@@ -15,6 +16,12 @@ import {
       return {
         ...state,
         optickets: auxiliar,
+      };
+
+      case DELETE_OPTICKETS:
+      return {
+        ...state,
+        optickets: state.optickets.filter((el) => el.id !== action.payload),
       };
 
       default:
