@@ -21,6 +21,7 @@ export default function AdminDashboard() {
 
   return (
     <div>
+      {!allOpTickets.length && <h3>No hay tickets</h3>}
       {allOpTickets?.map((el) => {
         return (
         <Card variant="outlined">

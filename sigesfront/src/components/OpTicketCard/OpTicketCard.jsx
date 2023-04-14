@@ -8,7 +8,16 @@ export default function OpTicketCard({ id, name, client, detail }) {
     const dispatch = useDispatch();
 
     function deleteTicket(id) {
+      const enteredKey = window.prompt("Ingresa la clave para eliminar el ticket:");
+
+      // Verificar si la clave ingresada coincide con la clave esperada
+      if (enteredKey === "asdasd") { // Reemplaza "clave_secreta" con la clave esperada
+       // Si la clave coincide, llamar a dispatch
         dispatch(deleteOpTickets(id));
+      } else {
+        // Si la clave no coincide, mostrar un mensaje de error
+        window.alert("Clave incorrecta. No se pudo eliminar el ticket.");
+      }
       }
 
   return (
