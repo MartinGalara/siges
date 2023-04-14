@@ -3,6 +3,18 @@ const { Opticket } = require('../../db.js')
 
 const router = Router();
 
+router.get('/', async (req, res) => {
+
+   try {
+
+    const allOpTickets = await Opticket.findAll()
+    return res.status(200).json(allOpTickets)
+    
+   } catch (error) {
+    return res.status(400).json(error.message)
+   }
+})
+
 router.post('/', async (req, res) => {
 
     const { name, client, detail } = req.body;
