@@ -1,5 +1,4 @@
 const { Router } = require('express');
-const { Testing } = require('../../db.js')
 const { Computer, User } = require('../../db.js')
 //const userExtractor = require('../middleware/userExtractor.js.js');
 
@@ -16,7 +15,7 @@ router.get('/', async (req, res) => {
     const array = []
 
     allComputers.map(e => {
-        if(!e.user.info){
+        if(!e.user){
             array.push(e)
         }
     })
