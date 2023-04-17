@@ -1,6 +1,6 @@
 const { Router } = require('express');
 const { Testing } = require('../../db.js')
-const { Computer } = require('../../db.js')
+const { Computer, User } = require('../../db.js')
 //const userExtractor = require('../middleware/userExtractor.js.js');
 
 const router = Router();
