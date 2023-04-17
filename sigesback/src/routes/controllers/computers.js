@@ -27,6 +27,7 @@ router.get('/', async (req, res) => {
 
         return res.status(200).json(allComputers)
     } catch (error) {
+        console.log(error.message)
          return res.status(400).send(error.message)
     }
 })
