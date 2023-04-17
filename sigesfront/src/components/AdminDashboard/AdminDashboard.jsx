@@ -1,40 +1,35 @@
 import React from "react";
-import { useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import {
-  getAllOpTickets
-} from "../../redux/actions";
-import { Card }  from '@mui/material'
-
-import OpTicketCard from "../OpTicketCard/OpTicketCard";
+import { Button }  from '@mui/material'
+import { Link } from "react-router-dom";
 
 export default function AdminDashboard() {
 
-    const dispatch = useDispatch();
-    const allOpTickets = useSelector((state) => state.optickets);
-
-    useEffect(() => {
-        if (allOpTickets.length === 0) {
-        dispatch(getAllOpTickets());
-      }
-      }, [dispatch,allOpTickets]);
-
   return (
     <div>
-      {!allOpTickets.length && <h3>No hay tickets</h3>}
-      {allOpTickets?.map((el) => {
-        return (
-        <Card variant="outlined">
-          <OpTicketCard
-            key={el.id}
-            name={el.name}
-            client={el.client}
-            detail={el.detail}
-            id={el.id}
-          />
-        </Card>
-        );
-      })}
+      <Link to="/admin/optickets">
+        <Button 
+        variant="outlined" 
+        color="primary" 
+        >
+        Tickets de operadores
+        </Button>
+      </Link>
+      <Link to="/admin/clients">
+        <Button 
+        variant="outlined" 
+        color="primary" 
+        >
+        Clientes
+        </Button>
+      </Link>
+      <Link to="/admin/computers">
+        <Button 
+        variant="outlined" 
+        color="primary" 
+        >
+        Computadoras
+        </Button>
+      </Link>
     </div>
   );
 }

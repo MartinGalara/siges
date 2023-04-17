@@ -3,6 +3,8 @@ import { Route } from "react-router-dom";
 import LandingPage from './components/LandingPage/LandingPage';
 import TicketForm from './components/TicketForm/TicketForm'
 import AdminDashboard from './components/AdminDashboard/AdminDashboard';
+import OpTickets from './components/Home/OpTickets';
+import Computers from './components/Computers/Computers';
 
 function App() {
   return (
@@ -15,6 +17,12 @@ function App() {
       </Route>
       <Route exact path='/admin'>
         <AdminDashboard/>
+      </Route>
+      <Route exact path='/admin/optickets'>
+        <OpTickets/>
+      </Route>
+      <Route exact path='/admin/computers'>
+        <Computers/>
       </Route>
     </div>
   );

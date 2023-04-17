@@ -1,10 +1,12 @@
 import {
   GET_ALL_OPTICKETS,
-  DELETE_OPTICKETS
+  DELETE_OPTICKETS,
+  GET_ALL_COMPUTERS
 } from "../actions"; 
  
  const initialState = {
     optickets: [],
+    computers: []
   };
   
   const rootReducer = (state = initialState, action) => {
@@ -22,6 +24,14 @@ import {
       return {
         ...state,
         optickets: state.optickets.filter((el) => el.id !== action.payload),
+      };
+
+      case GET_ALL_COMPUTERS:
+      const aux = [];
+      action.payload.map(el => aux.push(el))
+      return {
+        ...state,
+        computers: aux,
       };
 
       default:

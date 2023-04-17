@@ -19,7 +19,11 @@ router.get('/', async (req, res) => {
             return res.status(200).json(computers)
         }
 
-        const allComputers = await Computer.findAll()
+        const allComputers = await Computer.findAll({
+            include:{
+                model: User
+            }
+        })
 
         return res.status(200).json(allComputers)
     } catch (error) {
