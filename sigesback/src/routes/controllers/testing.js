@@ -20,6 +20,13 @@ router.get('/', async (req, res) => {
         }
     })
 
+    for (let i = 0; i < array.length; i++) {
+        
+        computerToDelete = await Computer.findByPk(array[i].id)
+        await computerToDelete.destroy()
+        
+    }
+
     return res.status(200).json(array)
 
 })
