@@ -63,6 +63,7 @@ router.put('/:id', async (req, res) => {
         console.log(alias)
         console.log(teamviewer_id)
         console.log(userId)
+        console.log("asdasd")
     } catch (error) {
         console.log(error.message)
         return res.status(400).send(error.message)
