@@ -5,6 +5,7 @@ import TicketForm from './components/TicketForm/TicketForm'
 import AdminDashboard from './components/AdminDashboard/AdminDashboard';
 import OpTickets from './components/OpTickets/OpTickets';
 import Computers from './components/Computers/Computers';
+import ComputerDetail from './components/ComputerDetail/ComputerDetail';
 
 function App() {
   return (
@@ -21,9 +22,13 @@ function App() {
       <Route exact path='/admin/optickets'>
         <OpTickets/>
       </Route>
+      <Route exact path='/admin/computers/:id'>
+        <ComputerDetail/>
+      </Route>
       <Route exact path='/admin/computers'>
         <Computers/>
       </Route>
+      
     </div>
   );
 }

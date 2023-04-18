@@ -2,7 +2,7 @@ import axios from "axios";
 export const GET_ALL_OPTICKETS = "GET_ALL_OPTICKETS";
 export const DELETE_OPTICKETS = "DELETE_OPTICKETS";
 export const GET_ALL_COMPUTERS = "GET_ALL_COMPUTERS";
-export const GET_COMPUTER = "GET_ALL_COMPUTERS";
+export const GET_COMPUTER = "GET_COMPUTER";
 
 export function createTicket(arg) {
     return async function () {
@@ -63,4 +63,12 @@ export function createTicket(arg) {
     return{
       type: "CLEAR_DETAIL",
     }
+  }
+
+  export function editComputer(id,input) {
+    return async function (dispatch) {
+      console.log(id) 
+      console.log(input)
+      //const computer = await axios.put(`https://siges-production.up.railway.app/computers/${id}`,input);
+    };
   }

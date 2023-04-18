@@ -12,7 +12,6 @@ export default function Computers() {
 
     const dispatch = useDispatch();
     const allComputers = useSelector((state) => state.computers);
-    console.log(allComputers)
 
     useEffect(() => {
         if (allComputers.length === 0) {

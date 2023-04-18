@@ -53,4 +53,21 @@ router.get('/', async (req, res) => {
     }
 })
 
+router.put('/:id', async (req, res) => {
+
+    const {id} = req.params;
+    const {alias, teamviewer_id, userId} = req.body
+
+    try {
+        console.log(id)
+        console.log(alias)
+        console.log(teamviewer_id)
+        console.log(userId)
+    } catch (error) {
+        console.log(error.message)
+        return res.status(400).send(error.message)
+    }
+
+})
+
 module.exports = router;
