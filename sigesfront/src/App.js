@@ -3,7 +3,7 @@ import { Route } from "react-router-dom";
 import LandingPage from './components/LandingPage/LandingPage';
 import TicketForm from './components/TicketForm/TicketForm'
 import AdminDashboard from './components/AdminDashboard/AdminDashboard';
-import OpTickets from './components/Home/OpTickets';
+import OpTickets from './components/OpTickets/OpTickets';
 import Computers from './components/Computers/Computers';
 
 function App() {

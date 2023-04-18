@@ -6,8 +6,15 @@ const router = Router();
 router.get('/', async (req, res) => {
 
     const {userId} = req.query;
+    const {id} = req.params;
+    console.log(id)
 
     try {
+
+        if(id){
+            const computer = await Computer.findByPk(id)
+            return res.status(200).json(computer)
+        }
 
         if(userId){
             const computers = await Computer.findAll({
