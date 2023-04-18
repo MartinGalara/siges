@@ -66,9 +66,7 @@ export function createTicket(arg) {
   }
 
   export function editComputer(id,input) {
-    return async function (dispatch) {
-      console.log(id) 
-      console.log(input)
-      //const computer = await axios.put(`https://siges-production.up.railway.app/computers/${id}`,input);
+    return async function () {
+      await axios.put(`https://siges-production.up.railway.app/computers/${id}`,input);
     };
   }
