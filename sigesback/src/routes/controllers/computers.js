@@ -26,14 +26,17 @@ router.get('/:id', async (req, res) => {
 
 router.get('/', async (req, res) => {
 
-    const {userId} = req.query;
+    const {userId,zone} = req.query;
+    console.log(userId)
+    console.log(zone)
 
     try {
 
-        if(userId){
+        if(userId && zone){
             const computers = await Computer.findAll({
                 where:{
-                    userId: userId
+                    userId: userId,
+                    zone: zone
                 }
             })
 
