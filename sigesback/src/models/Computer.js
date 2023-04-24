@@ -8,6 +8,9 @@ module.exports = (sequelize) => {
         teamviewer_id: {
             type: DataTypes.STRING,
         },
+        zone: {
+            type: DataTypes.STRING,
+        }
     },
         {
             timestamps: false,
