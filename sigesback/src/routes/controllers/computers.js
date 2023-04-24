@@ -27,8 +27,6 @@ router.get('/:id', async (req, res) => {
 router.get('/', async (req, res) => {
 
     const {userId,zone} = req.query;
-    console.log(userId)
-    console.log(zone)
 
     try {
 
