@@ -17,6 +17,7 @@ export default function ComputerDetail() {
     alias: "",
     teamviewer_id: "",
     userId: "",
+    zone: "",
     simpleFlag: false,
   })
 
@@ -25,11 +26,13 @@ export default function ComputerDetail() {
     alias: computer.alias,
     teamviewer_id: computer.teamviewer_id,
     userId: computer.userId,
+    zone: computer.zone,
     simpleFlag: true
     })
   }
 
   useEffect(() => {
+    dispatch(clearDetail())
     dispatch(getComputer(id));
   },[dispatch,id]);
 
@@ -47,7 +50,8 @@ export default function ComputerDetail() {
         dispatch(editComputer(id,{
           alias: input.alias,
           teamviewer_id: input.teamviewer_id,
-          userId: input.userId
+          userId: input.userId,
+          zone: input.zone
         }))
         dispatch(clearDetail())
         history.push("/admin/computers")
@@ -88,6 +92,17 @@ export default function ComputerDetail() {
                 variant="outlined"
                 fullWidth
                 value={input.userId}
+                sx={{mt:2}}
+                onChange={handleInputChange}
+            />
+
+            <TextField
+                id="zone"
+                label="Zona"
+                type="zone"
+                variant="outlined"
+                fullWidth
+                value={input.zone}
                 sx={{mt:2}}
                 onChange={handleInputChange}
             />

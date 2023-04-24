@@ -30,6 +30,7 @@ export default function Computers() {
             alias={el.alias}
             teamviewer_id={el.teamviewer_id}
             client={el.user.info}
+            zone={el.zone}
             id={el.id}
           />
         </Card>
