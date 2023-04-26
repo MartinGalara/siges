@@ -19,6 +19,9 @@ module.exports = (sequelize) => {
         },
         vip: {
             type: DataTypes.STRING,
+        },
+        vipmail: {
+            type: DataTypes.STRING,
         }
     },
         {
