@@ -10,6 +10,9 @@ module.exports = (sequelize) => {
         },
         zone: {
             type: DataTypes.STRING,
+        },
+        order:{
+            type: DataTypes.INTEGER,
         }
     },
         {

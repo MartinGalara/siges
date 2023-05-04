@@ -56,7 +56,7 @@ router.get('/', async (req, res) => {
 router.put('/:id', async (req, res) => {
 
     const {id} = req.params;
-    const {alias, teamviewer_id, userId, zone} = req.body
+    const {alias, teamviewer_id, userId, zone, order} = req.body
 
     try {
         const computerToUpdate = await Computer.findByPk(id)
@@ -64,7 +64,8 @@ router.put('/:id', async (req, res) => {
             alias,
             teamviewer_id,
             userId,
-            zone
+            zone,
+            order
         })
         return res.status(200).send("Listo")
     } catch (error) {
