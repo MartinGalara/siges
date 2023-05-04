@@ -32,6 +32,7 @@ export default function Computers() {
             client={el.user.info}
             zone={el.zone}
             id={el.id}
+            order={el.order}
           />
         </Card>
         );

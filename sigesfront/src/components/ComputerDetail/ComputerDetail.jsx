@@ -18,6 +18,7 @@ export default function ComputerDetail() {
     teamviewer_id: "",
     userId: "",
     zone: "",
+    order: null,
     simpleFlag: false,
   })
 
@@ -27,6 +28,7 @@ export default function ComputerDetail() {
     teamviewer_id: computer.teamviewer_id,
     userId: computer.userId,
     zone: computer.zone,
+    order: computer.order,
     simpleFlag: true
     })
   }
@@ -51,7 +53,8 @@ export default function ComputerDetail() {
           alias: input.alias,
           teamviewer_id: input.teamviewer_id,
           userId: input.userId,
-          zone: input.zone
+          zone: input.zone,
+          order: input.order
         }))
         dispatch(clearDetail())
         history.push("/admin/computers")
@@ -103,6 +106,17 @@ export default function ComputerDetail() {
                 variant="outlined"
                 fullWidth
                 value={input.zone}
+                sx={{mt:2}}
+                onChange={handleInputChange}
+            />
+
+            <TextField
+                id="order"
+                label="Orden"
+                type="order"
+                variant="outlined"
+                fullWidth
+                value={input.order}
                 sx={{mt:2}}
                 onChange={handleInputChange}
             />
