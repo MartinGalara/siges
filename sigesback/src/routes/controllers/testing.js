@@ -6,7 +6,7 @@ const router = Router();
 
 router.get('/', async (req, res) => {
 
-
+console.log("asd")
 })
 
 module.exports = router;
