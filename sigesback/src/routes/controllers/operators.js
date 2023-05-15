@@ -34,7 +34,7 @@ router.get('/', async (req, res) => {
         // Buscar operadores por correo electrónico
         const operators = await Operator.findAll({
           where: { email },
-          attributes: ['email'], // Puedes ajustar los atributos que deseas devolver
+          attributes: ['id','email'], // Puedes ajustar los atributos que deseas devolver
         });
         res.status(200).json(operators);
       } else {

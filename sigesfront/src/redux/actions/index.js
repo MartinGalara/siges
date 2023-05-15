@@ -3,6 +3,7 @@ export const GET_ALL_OPTICKETS = "GET_ALL_OPTICKETS";
 export const DELETE_OPTICKETS = "DELETE_OPTICKETS";
 export const GET_ALL_COMPUTERS = "GET_ALL_COMPUTERS";
 export const GET_COMPUTER = "GET_COMPUTER";
+export const LOGIN_SUCCESS = "LOGIN_SUCCESS";
 
 export function createTicket(arg) {
     return async function () {
@@ -68,5 +69,18 @@ export function createTicket(arg) {
   export function editComputer(id,input) {
     return async function () {
       await axios.put(`https://siges-production.up.railway.app/computers/${id}`,input);
+    };
+  }
+
+  export function login(input) {
+    return async function (dispatch) {
+      try {
+        const resultado = await axios.post("https://siges-production.up.railway.app/login", input); 
+        if (resultado.data.message === "Inicio de sesión exitoso") {
+          dispatch({ type: LOGIN_SUCCESS , payload: input.email});
+        }
+      } catch (error) {
+        alert(error.response.data.message)
+      }
     };
   }
