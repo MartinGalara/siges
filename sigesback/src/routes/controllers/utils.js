@@ -37,4 +37,28 @@ function generarCodigo() {
     return codigo;
   }
 
-  module.exports = {createUser}
+  const createWebUser = async (data) => {
+
+    const userId = generarCodigo()
+
+    const findUser = await User.findAll({
+        where:{
+            id: userId
+        }
+    })
+
+    if(findUser.length === 0){
+        const newUser = await User.create({
+            id: userId,
+            email: data.email,
+            info: data.info
+        })
+        return newUser;
+    }
+    else{
+        return await createUser(data)
+    }
+
+}
+
+  module.exports = {createUser, createWebUser}

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { TextField, Button } from "@mui/material";
+import { TextField, Button, Link } from "@mui/material";
 import { useDispatch, useSelector  } from "react-redux";
 import { login } from "../../redux/actions";
 
@@ -54,6 +54,10 @@ export default function LandingPage() {
     <Button variant="contained" color="primary" onClick={handleLogin}>
       Iniciar sesión
     </Button>
+    <br />
+      <Link href="/createaccount">No tenes cuenta? Crear cuenta</Link>
+      <br />
+      <Link href="#">Olvidaste la contraseña?</Link>
   </div>
   );
 }

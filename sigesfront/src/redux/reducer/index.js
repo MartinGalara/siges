@@ -3,14 +3,18 @@ import {
   DELETE_OPTICKETS,
   GET_ALL_COMPUTERS,
   GET_COMPUTER,
-  LOGIN_SUCCESS
+  LOGIN_SUCCESS,
+  GET_USER_INFO
 } from "../actions"; 
  
  const initialState = {
     optickets: [],
     computers: [],
     computerDetail: {},
-    userEmail: ""
+    userEmail: "",
+    userInfo:{
+      empty: true,
+    }
   };
   
   const rootReducer = (state = initialState, action) => {
@@ -55,6 +59,13 @@ import {
           ...state,
           userEmail: action.payload,
         };
+
+      case GET_USER_INFO:
+        console.log(action.payload)
+        return{
+          ...state,
+          userInfo: action.payload
+        }
 
       default:
       return state;
