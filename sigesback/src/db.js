@@ -57,6 +57,7 @@ const { User } = sequelize.models;
 const { Ticket } = sequelize.models;
 const { Computer } = sequelize.models;
 const { Staff } = sequelize.models;
+const { Webuser } = sequelize.models;
 
 // Aca vendrian las relaciones
 Ticket.belongsTo(User);
@@ -67,6 +68,9 @@ Computer.belongsTo(User);
 
 User.hasMany(Staff);
 Staff.belongsTo(User);
+
+User.hasMany(Webuser);
+Webuser.belongsTo(User)
 
 module.exports = {
   ...sequelize.models, // para poder importar los modelos así: const { Product, User } = require('./db.js');
