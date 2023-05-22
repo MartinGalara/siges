@@ -4,7 +4,7 @@ export const DELETE_OPTICKETS = "DELETE_OPTICKETS";
 export const GET_ALL_COMPUTERS = "GET_ALL_COMPUTERS";
 export const GET_COMPUTER = "GET_COMPUTER";
 export const LOGIN_SUCCESS = "LOGIN_SUCCESS";
-export const GET_USER_INFO = "GET_USER_INFO"
+export const GET_USER_INFO = "GET_USER_INFO";
 
 export function createTicket(arg) {
     return async function () {
@@ -98,4 +98,19 @@ export function createTicket(arg) {
         alert(error.response.data.message)
       }
     };
+  }
+
+  export function createWebUser(data) {
+    return async function () {
+      try {
+      await axios.post(`https://siges-production.up.railway.app/webusers`,data); 
+
+      } catch (error) {
+        alert(error.response.data.message)
+      }
+    };
+  }
+
+  export function activationEmail(){
+    
   }
