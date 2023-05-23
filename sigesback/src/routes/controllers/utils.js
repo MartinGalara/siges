@@ -1,5 +1,8 @@
 const { User } = require('../../db.js')
 const nodemailer = require('nodemailer');
+const dotenv = require("dotenv");
+
+dotenv.config();
 
 const createUser = async (data) => {
 
