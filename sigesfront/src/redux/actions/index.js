@@ -111,6 +111,16 @@ export function createTicket(arg) {
     };
   }
 
-  export function activationEmail(){
-    
+  export function activateUser(username,role){
+    return async function () {
+      try {
+      await axios.put(`https://siges-production.up.railway.app/webusers`,{
+        username,
+        role
+      }); 
+        alert("Usuario activado con exito")
+      } catch (error) {
+        alert(error.response.data.message)
+      }
+    };
   }

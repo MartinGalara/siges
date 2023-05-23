@@ -32,10 +32,10 @@ export default function CreateAccount() {
             dispatch(createWebUser({
               username: input.username,
               password: input.password,
-              userId: input.identificador
+              userId: input.identificador,
+              email: userInfo.email
             }))
-            const hiddenEmail = userInfo.email.replace(/^.{5}/, "*****");
-            alert(`Recibirá un correo electrónico a la casilla ${hiddenEmail} para habilitar el usuario creado.`);
+            alert(`Se envió un correo electrónico a ${userInfo.email} para habilitar el usuario creado.`);
         }
       }, [userInfo, dispatch, input.identificador, input.password, input.username]);
     

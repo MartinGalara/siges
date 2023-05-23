@@ -4,7 +4,8 @@ module.exports = (sequelize) => {
     sequelize.define('webuser', {
         username: {
             type: DataTypes.STRING,
-            allowNull: false
+            allowNull: false,
+            unique: true
         },
         hashPassword: {
             type: DataTypes.STRING,
@@ -16,6 +17,10 @@ module.exports = (sequelize) => {
         role: {
             type: DataTypes.STRING,
             defaultValue: "User"
+        },
+        active: {
+            type: DataTypes.BOOLEAN,
+            defualtValue: false
         }
     },
         {
