@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 
 import { TextField, Button, Select, MenuItem, FormControl, InputLabel } from "@mui/material";
 import { useDispatch, useSelector } from "react-redux";
-import { findUser } from "../../redux/actions";
+import { findUser, createWebUser } from "../../redux/actions";
 
 export default function CreateAccount() {
 
@@ -10,7 +10,8 @@ export default function CreateAccount() {
         flag:"",
         id: "",
         password: "",
-        username: ""
+        username: "",
+        identificador:""
       })
     
       const dispatch = useDispatch();
@@ -27,12 +28,16 @@ export default function CreateAccount() {
     useEffect(() => {
         if(Object.keys(userInfo).length === 0){
             alert('No se encontro a un cliente con ese identificador')
-        }else{
-            
-            const hiddenEmail = userInfo.email.replace(/^.{5}/, "*****");
-            alert(`Recibirá un correo electrónico a la casilla ${hiddenEmail} para habilitar el usuario creado.`);
+        }else if(!userInfo.hasOwnProperty('empty')){
+            dispatch(createWebUser({
+              username: input.username,
+              password: input.password,
+              userId: input.identificador,
+              email: userInfo.email
+            }))
+            alert(`Se envió un correo electrónico a ${userInfo.email} para habilitar el usuario creado.`);
         }
-      }, [userInfo]);
+      }, [userInfo, dispatch, input.identificador, input.password, input.username]);
     
 
 
@@ -64,12 +69,14 @@ export default function CreateAccount() {
                 break;
             case "Otro": 
                 identificador = "OT"
-            break;
+              break;
+            default:
+              break;
       };
 
       identificador = identificador + input.id
+      setInput({ ...input, identificador: identificador });
       dispatch(findUser(identificador))
-      console.log("Cuenta creada:", identificador);
     }
 
   return (

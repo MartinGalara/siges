@@ -4,7 +4,7 @@ export const DELETE_OPTICKETS = "DELETE_OPTICKETS";
 export const GET_ALL_COMPUTERS = "GET_ALL_COMPUTERS";
 export const GET_COMPUTER = "GET_COMPUTER";
 export const LOGIN_SUCCESS = "LOGIN_SUCCESS";
-export const GET_USER_INFO = "GET_USER_INFO"
+export const GET_USER_INFO = "GET_USER_INFO";
 
 export function createTicket(arg) {
     return async function () {
@@ -94,6 +94,31 @@ export function createTicket(arg) {
           type: GET_USER_INFO,
           payload: resultado.data[0] ? resultado.data[0] : {},
         });
+      } catch (error) {
+        alert(error.response.data.message)
+      }
+    };
+  }
+
+  export function createWebUser(data) {
+    return async function () {
+      try {
+      await axios.post(`https://siges-production.up.railway.app/webusers`,data); 
+
+      } catch (error) {
+        alert(error.response.data.message)
+      }
+    };
+  }
+
+  export function activateUser(username,role){
+    return async function () {
+      try {
+      await axios.put(`https://siges-production.up.railway.app/webusers`,{
+        username,
+        role
+      }); 
+        alert("Usuario activado con exito")
       } catch (error) {
         alert(error.response.data.message)
       }

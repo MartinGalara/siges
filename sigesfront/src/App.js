@@ -7,6 +7,7 @@ import OpTickets from './components/OpTickets/OpTickets';
 import Computers from './components/Computers/Computers';
 import ComputerDetail from './components/ComputerDetail/ComputerDetail';
 import CreateAccount from './components/CreateAccount/CreateAccount';
+import NewUser from './components/NewUser/NewUser';
 
 function App() {
   return (
@@ -15,7 +16,10 @@ function App() {
         <LandingPage/>
       </Route>
       <Route exact path='/createaccount'>
-        <CreateAccount  />
+        <CreateAccount/>
+      </Route>
+      <Route exact path='/newuser'>
+        <NewUser/>
       </Route>
       <Route exact path='/ticket'>
         <TicketForm/>

@@ -1,4 +1,5 @@
 const { User } = require('../../db.js')
+const nodemailer = require('nodemailer');
 
 const createUser = async (data) => {
 
@@ -37,7 +38,7 @@ function generarCodigo() {
     return codigo;
   }
 
-  const createWebUser = async (data) => {
+const createWebUser = async (data) => {
 
     const userId = generarCodigo()
 
@@ -61,4 +62,36 @@ function generarCodigo() {
 
 }
 
-  module.exports = {createUser, createWebUser}
+const sendEmailWebUser = async (email,username) => {
+
+    let transporter = nodemailer.createTransport({
+        host: "smtp.gmail.com",
+        port: 465,
+        secure: true, // true for 465, false for other ports
+        auth: {
+          user: process.env.SENDER, // generated ethereal user
+          pass: process.env.GMAIL_PASS, // generated ethereal password
+        },
+      });
+
+      let data = {
+        from: process.env.SENDER, // sender address
+        to: email, // list of receivers
+        subject: `Alta de nuevo usuario: ${username}`, // Subject line
+        text: `Alta de nuevo usuario: ${username}`, // plain text body
+      }
+
+      data.html = `
+    <div>
+    <p>Alta de nuevo usuario - Web Sistema SIGES</p>
+    <p>Nuevo usuario: ${username}</p>
+    <br></br>
+    <p>Para activarlo ingrese a: https://siges-hu5mause7-martingalara.vercel.app/newuser?username=${username}</p>
+    </div>
+    ` // html body
+
+    const mail = await transporter.sendMail(data);
+
+}
+
+module.exports = {createUser, createWebUser, sendEmailWebUser}
